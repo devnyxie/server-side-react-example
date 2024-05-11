@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx babel-node src/server.js",
-    "build": "babel src -d dist",
+    "start": "npx babel-node app/server.js",
+    "build": "babel app -d dist",
     "serve": "node dist/server.js"
   },
   "keywords": [],

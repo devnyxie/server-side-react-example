@@ -7,11 +7,15 @@ import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import App from "./components/App";
+import path from "path";
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("*", (req, res) => {
   const html = ReactDOMServer.renderToString(<App />);
+
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
@@ -22,6 +26,8 @@ app.get("*", (req, res) => {
     </head>
     <body>
     ${html}
+    <div id="test">delete me!</div>
+    <script src="/script.js"></script>
     </body>
     </html>
   `);
